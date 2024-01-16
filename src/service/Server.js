@@ -27,9 +27,6 @@ class Server {
         this.app.set("view engine", "handlebars");
         this.app.set("views", "./src/views");
 
-        
-        
-
         const httpServer = this.app.listen(this.port, () => {
             // Se corroborará que el servidor esté corriendo en el puerto 8080.
             console.log(`Servidor escuchando en puerto: ${this.port}`);
@@ -37,7 +34,7 @@ class Server {
         
         const io = new socket.Server(httpServer);
         
-        io.on("connection", (socket) => {        
+        io.on("connection", (socket) => {
             console.log("Nuevo cliente conectado");
             
             socket.on("message", data => {
@@ -45,8 +42,6 @@ class Server {
                 io.emit("respuesta", "mensaje recibido");
             })
         });
-
-       
     
     }
 }

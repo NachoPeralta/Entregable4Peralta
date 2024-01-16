@@ -86,15 +86,4 @@ router.delete("/:pid", async (req, res) => {
     }
 })
 
-router.get("/realtimeproducts", async (req, res) => {
-    try {
-        const products = await productManager.getProducts();
-        res.send({ status: "success", product: products });
-    } catch (error) {
-        res.send({ status: "error", error: error.message });
-        console.log(error);
-        return;
-    }
-})
-
 module.exports = router;
