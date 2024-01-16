@@ -32,7 +32,7 @@ class Server {
             console.log(`Servidor escuchando en puerto: ${this.port}`);
         });
         
-        const io = new socket.Server(httpServer);
+        const io = socket(httpServer);
         
         io.on("connection", (socket) => {
             console.log("Nuevo cliente conectado");
