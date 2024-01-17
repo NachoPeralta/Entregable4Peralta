@@ -1,23 +1,5 @@
 [
   {
-    "id": 1,
-    "title": "producto prueba 1",
-    "description": "Este es un producto prueba",
-    "price": 200,
-    "thumbnail": "Sin imagen",
-    "code": "abc1",
-    "stock": 25
-  },
-  {
-    "id": 2,
-    "title": "producto prueba 2",
-    "description": "Este es un producto prueba",
-    "price": 200,
-    "thumbnail": "Sin imagen",
-    "code": "abc2",
-    "stock": 25
-  },
-  {
     "id": 3,
     "title": "producto prueba 3",
     "description": "Este es un producto prueba",
@@ -183,14 +165,23 @@
     "thumbnail": []
   },
   {
-    "id": 22,
-    "title": "Producto creado desde Postman",
-    "description": "Este es un producto creado desde postman",
-    "code": "abc24",
-    "price": 5000,
-    "status": "true",
-    "stock": 25,
-    "category": "Categoria1",
-    "thumbnail": []
+    "id": 23,
+    "title": "otro mas",
+    "description": "otro producto mas desde cliente",
+    "code": "bbb3",
+    "price": "4000",
+    "status": true,
+    "stock": "40",
+    "category": "4"
+  },
+  {
+    "id": 24,
+    "title": "fghfgh",
+    "description": "hfghfgh",
+    "code": "5656rdtfgh",
+    "price": "6777",
+    "status": true,
+    "stock": "577",
+    "category": "fty"
   }
 ]

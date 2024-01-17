@@ -29,18 +29,36 @@ class Server {
         this.app.use("/api/carts", cartRouter);
         this.app.use("/", viewsRouter);
 
-        const httpServer = this.app.listen(this.port);
+        const httpServer = this.app.listen(this.port, () => {
+            console.log(`Servidor escuchando en el puerto ${this.port}`);
+        });
 
         const io = new socket.Server(httpServer);
 
-        io.on("connection", (socket) => {
-            console.log("Nuevo cliente conectado");
+        const ProductManager = require("../service/ProductManager");
+        const productManager = new ProductManager("./src/models/products.json");
 
-            socket.on("message", data => {
-                console.log(data);
-                io.emit("respuesta", "mensaje recibido");
-            })
+        io.on("connection", async (socket) => {
+            console.log("Nuevo cliente conectado");
+            console.log("Socket ID:" + socket.id);
+           
+            // Cargo Productos y los envio al cliente
+            socket.emit("products", await productManager.getProducts());
+
+            // Agregar nuevo producto
+            socket.on("addProduct", async (product) => {
+                await productManager.addProduct(product);
+                io.sockets.emit("products", await productManager.getProducts());            
+            });
+
+            // Eliminar producto
+            socket.on("deleteProduct", async (id) => {
+                await productManager.deleteProduct(id);
+                io.sockets.emit("products", await productManager.getProducts());            
+            });
+
         });
     }
 }
+
 module.exports = Server;

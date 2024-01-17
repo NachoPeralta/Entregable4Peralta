@@ -1,3 +1,25 @@
-<h1>{{welcome}}</h1>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
-<script src="/js/index.js"></script>
+<h1>{{title}}</h1>
+<div>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>En Stock</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each products}}
+        <tr>
+          <td>{{this.code}}</td>
+          <td>{{this.title}}</td>
+          <td>{{this.description}}</td>
+          <td>{{this.stock}}</td>
+          <td>{{this.price}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
