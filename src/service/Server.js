@@ -22,7 +22,7 @@ class Server {
         // Configuracion de motor de plantilla y handlebars
         this.app.engine("handlebars", exphbs.engine());
         this.app.set("view engine", "handlebars");
-        this.app.set("views", "./src/views");
+        this.app.set("views", path.join(__dirname, "../views"));
 
         // Routing
         this.app.use("/api/products", productsRouter);
